@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.zime.bigdata2002.appdemo.dao.mapper.DoctorMapperXML">
+    <insert id="insertDoctor" parameterType="Doctor">
+        insert into doctors values(#{id},#{name},#{genda},#{level},#{depart}, #{ability})
+    </insert>
+    <select id="selectAllDoctors" resultType="cn.edu.zime.bigdata2002.appdemo.dao.model.Doctor">
+        select * from doctors
+    </select>
+    <select id="selectDoctors" resultType="Doctor">
+        select * from doctors where id=#{id} or name=#{name}
+    </select>
+    <update id="updateDoctor" parameterType="Doctor">
+        update doctors set name=#{name}, genda=#{genda}, level=#{level}, depart=#{depart}, ability=#{ability} where id=#{id}
+    </update>
+    <delete id="deleteDoctor" parameterType="String">
+        delete from doctors where id = #{id}
+    </delete>
+</mapper>
